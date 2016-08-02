@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     // et appelant la tache JSHINT
     watch: {
       js: {
-        files: 'app/scripts/**/*.js',
+        files: 'app/**/*.js',
         tasks: ['jshint']
       },
       gruntfile: {
@@ -52,7 +52,8 @@ module.exports = function(grunt) {
         src: [
           'app/styles/*.css',
           'app/scripts/*.js',
-          'app/*.html'
+          'app/**/*.js',
+          'app/**/*.html'
         ]
       },
       options: {
