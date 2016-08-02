@@ -20,15 +20,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
-      build: ['app/scripts/**/*.js']
-    },
-    // Tache LESS pour compilation LESS vers CSS
-    less: {
-      build: {
-        files: {
-          'app/styles/style.css': 'app/styles/style.less'
-        }
-      }
+      build: ['app/**/*.js']
     },
     // Tache WATCH vérifiant les changements des fichiers JS
     // et appelant la tache JSHINT
@@ -39,10 +31,6 @@ module.exports = function(grunt) {
       },
       gruntfile: {
         files: 'Gruntfile.js'
-      },
-      css: {
-        files: 'app/styles/**/*.less',
-        tasks: ['less']
       }
     },
     // Tache BROWSERSYNC synchronisant les navigateurs connectés
@@ -50,8 +38,6 @@ module.exports = function(grunt) {
     browserSync: {
       bsFiles: {
         src: [
-          'app/styles/*.css',
-          'app/scripts/*.js',
           'app/**/*.js',
           'app/**/*.html'
         ]
@@ -73,7 +59,6 @@ module.exports = function(grunt) {
   // make sure you have run npm install so our app can find these
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.registerTask('default', ['browserSync', 'watch']);
